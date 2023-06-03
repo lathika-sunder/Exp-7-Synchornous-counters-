@@ -1,10 +1,14 @@
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
-### THEORY 
 
-## UP COUNTER 
+## AIM: 
+To implement 4 bit up and down counters and validate  functionality.
+
+## EQUIPMENT'S REQUIRED:
+HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
+SOFTWARE REQUIRED:   Quartus prime
+## THEORY 
+
+### UP COUNTER 
 The counter is a digital sequential circuit and here it is a 4 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
 
 The counter (“count“) value will be evaluated at every positive (rising) edge of the clock (“clk“) cycle.
@@ -36,7 +40,7 @@ Four-bit “Up” Counter
 
 
 
-## DOWN COUNTER 
+### DOWN COUNTER 
 
 As well as counting “up” from zero and increasing or incrementing to some preset value, it is sometimes necessary to count “down” from a predetermined value to zero allowing us to produce an output that activates when the zero count or some other pre-set value is reached.
 
@@ -45,44 +49,76 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 4-bit Count Down Counter
-### Procedure
-/* write all the steps invloved */
+## PROCEDURE:
+1. Create module projectname(input ,output) to start the verilog programming.
+2. create a if loop condition to increase the count in counter_up function.
+3. Similarly, create another loop for the down counter.
+4. End the verilog program using keyword endmodule.
+5. Get the timing diagram and RTL realization diagram for respective Counters.
 
-
-
-### PROGRAM 
-/*
+## PROGRAM :
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Lathika Sunder
+RegisterNumber:  212221230054
+```
+```
+### UP-COUNTER:
+module UC(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_up;
+always@ (posedge clk or posedge reset)
+begin
+if(reset)
+counter_up <= 4'd0;
+else
+counter_up <= counter_up + 4'd1;
+end
+assign counter = counter_up;
+endmodule
+
+### DOWN-COUNTER:
+module DC(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_down;
+always@(posedge clk or posedge reset)
+begin
+if(reset)
+counter_down <= 4'd0;
+else
+counter_down <= counter_down - 4'd1;
+end
+assign counter = counter_down;
+endmodule
+```
+
+## OUTPUT:
+### UP-COUNTER:
+### RTL Logic:
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/a2faebab-0c03-462a-bf49-0c20252cc36e)
+<br>
+
+### Timing Diagram for Counter:
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/2f9a1b97-0fbd-4a0c-8419-71686796a568)
+<br>
+
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/86a182a1-a39f-4bc2-8b86-b4ed7538a865)
 
 
+### Truth Table: 
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/422d8aef-3f9e-4eea-924b-857c4961d97a)
+<br>
 
+### DOWN-COUNTER:
+### RTL Logic:
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/f2b96a19-3bf2-4842-af4c-8d12828b568b)
 
+### Timing Diagram for Counter:
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/0b445b06-a413-4caa-9cea-8dc04d0e1b37)
+<br>
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/c8f856b9-dba9-47bc-84ec-1fbbb8272408)
 
+### Truth Table:
+![image](https://github.com/lathika-sunder/Exp-7-Synchornous-counters-/assets/95066409/a2c46609-fb3a-44f7-8260-2ff9c94f5767)
+<br>
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+## RESULTS 
+Thus 4 bit up and down counters is implemented and its functionality is validated.
